@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset= "UTF-8">
+    <title> Expense Tracker </title>
+    <link rel = "stylesheet" href= "styles.css">
+</head>
+<body>
+    <header>
+        <h1 class = "title"> Expense Tracker </h1>
+    </header>
+
+    <section class="content">
+        <h2 class="secondTitle"> Add Expense </h2>
+        <div class="form">
+            <form id ="expForm">
+                <div class ="formLine">
+                    <label for="type">Type:</label>
+                    <select id="type">
+                        <option value="chooseOne">Choose a type</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Grocery">Grocery</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class = "formLine">
+                    <label for = "name"> Expense Name : </label>
+                    <input type = "text" id="name">
+                </div>
+                <div class = "formLine">
+                    <label for = "date "> Date : </label>
+                    <input type = "date" id = "date">
+                </div>
+                <div class="formLine">
+                    <label for="amount"> Amount : </label>
+                    <input type="text" id="amount">
+                </div>
+                <button type="submit" class="buttonSave"> Add a new expense </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="content">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Expense Name</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Delete</th>
+                    <th>Modify</th>
+                </tr>
+            </thead>
+            <tbody id="expenseTable"></tbody>
+        </table>
+    </section>
+
+    <div id="highestExpenseWindow"></div>
+
+    <div id="modifyPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeModifyPopup()">&times;</span>
+            <h2>Edit Expense</h2>
+            <form id="modifyForm">
+                <label for="modifyType">Type:</label>
+                <input type="text" id="modifyType" name="modifyType" required>
+                <input type="hidden" id="modifyExpenseId" value="">
+                <label for="modifyName">Expense Name:</label>
+                <input type="text" id="modifyName" name="modifyName" required>
+                <label for="modifyDate">Date:</label>
+                <input type="date" id="modifyDate" name="modifyDate" required>
+                <label for="modifyAmount">Amount:</label>
+                <input type="number" id="modifyAmount" name="modifyAmount" required>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
